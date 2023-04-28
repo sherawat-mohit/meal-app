@@ -3,6 +3,18 @@ body{
     background-image: url("../background.png");
 }
 
+/* home anchors style */
+#backImg{
+    margin: 25px 0 0 25px;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    float: left;
+    background-color: rgb(0, 157, 255);
+}
+
 /* fav list styles */
 #fav-list{
     border-radius: 10px; 
