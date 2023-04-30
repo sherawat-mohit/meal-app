@@ -2,7 +2,7 @@ body{
     box-sizing: border-box;
     text-align: center;
     background-color: rgb(247, 247, 247);
-    background-image: url("../background.png");
+    background-image: url("../Assets/background.png");
 }
 
 /* main div styles */
@@ -105,9 +105,7 @@ a{
         font-size: 25px;
         
     }
-    img{
-        border-radius: 20px;
-        border: 1px solid black;
+    img{    
         height: 200px;
         width: 200px;
     }
@@ -139,22 +137,22 @@ a{
     }
 
     /* reducing list size and font size image size  */
-    #alpha-items,#fav-items,#cat-items{
+    #alpha-items,#fav-items,#category-items{
         height: 100px; 
     }
 
-    #alpha-items > div,#fav-items > div,#cat-items > div{
+    #alpha-items > div,#fav-items > div,#category-items > div{
         height: 98px; 
         width: 150px; 
     }
 
-    #alpha-items  img, #fav-items  img, #cat-items  img{
+    #alpha-items  img, #fav-items  img, #category-items  img{
         width: 200px;
         
     }
 
     /* heading size  */
-    #alpha-items h5,#fav-items h5,#cat-items h5{
+    #alpha-items h5,#fav-items h5,#category-items h5{
         height: 60px;
         width: 200px;
         font-size: 15px;
@@ -163,7 +161,7 @@ a{
     }
 
     /* button size  */
-    #alpha-items button, #fav-items button, #cat-items button{
+    #alpha-items button, #fav-items button, #category-items button{
         height: 30px;
         margin-left: 20px;
         background-image: linear-gradient(to right,  rgb(250, 75, 98),rgba(255,0,0,0));

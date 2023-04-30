@@ -1,5 +1,5 @@
 let alphabet;
-let httpReq = new XMLHttpRequest();
+let httpRequest = new XMLHttpRequest();
 var itemSet=new Set();
 
 // retriving data from local stoarge and storing it in Set 
@@ -23,7 +23,7 @@ function favDel(name){
         // removing from item set 
         itemSet.delete(name);
         let list="";
-        // iteraring over itemset and reappending it into string 
+        // iterating over itemset and reappending it into string 
         for(let id of itemSet){
             list+=id+"-";
         }
@@ -34,15 +34,15 @@ function favDel(name){
     loadAll();
 }
 
-// fetching fav data 
+// fetching favourite items data 
 function getFavData(alphabet){
-    let httpReq = new XMLHttpRequest();
-    httpReq.open("get", alphabet,false);
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("get", alphabet,false);
 
-    httpReq.onload = function() {
-        data = JSON.parse(httpReq.response);
+    httpRequest.onload = function() {
+        data = JSON.parse(httpRequest.response);
 
-        // populating fetched data to dom elements
+        // populating fetched data to DOM elements
         let meal = data.meals[0];
         parent=document.createElement("div");
         parent.id="fav-items";
@@ -69,7 +69,7 @@ function getFavData(alphabet){
         parent.appendChild(button);
         document.getElementById("fav-list").appendChild(parent);
     }
-    httpReq.send();
+    httpRequest.send();
 }
 
 // load all the data in list 
@@ -92,7 +92,7 @@ function loadAll(){
     // if size is 0 then so empty message 
     if(itemSet.size==0){
         heading=document.createElement("h2");
-        heading.innerHTML = "Oops!!! You haven't added any Meals to Favourites";
+        heading.innerHTML = "Oops!!! You haven't added any Dish to Favourites<br>Add Some dishes to using <b>Add to Favourite</b> Button";
         document.getElementById("fav-list").appendChild(heading);
     }
 }
