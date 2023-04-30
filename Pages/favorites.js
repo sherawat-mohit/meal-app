@@ -92,7 +92,7 @@ function loadAll(){
     // if size is 0 then so empty message 
     if(itemSet.size==0){
         heading=document.createElement("h2");
-        heading.innerHTML = "Oops!!! You haven't added any Dish to Favourites<br>Add Some dishes to using <b>Add to Favourite</b> Button";
+        heading.innerHTML = "Oops!!! You haven't added any Meal to Favourites<br>Add Some meals to using <b>Add to Favourite</b> Button";
         document.getElementById("fav-list").appendChild(heading);
     }
 }

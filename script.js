@@ -40,7 +40,7 @@ function getCatData(alphabet){
             img.src=meal.strMealThumb;
             div.appendChild(img);
 
-            // title of dish 
+            // title of Meal 
             title=document.createElement("h5");
             a=document.createElement("a");
             title.id=meal.idMeal;
