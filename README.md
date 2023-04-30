@@ -7,11 +7,11 @@ Project : Coding Ninjas Career Camp Project
 This is Meal app where you can know about your favourites dishes their recipe in text and video for guidance to cook that dish. You can search about any Dish and see the deatils about that meal.You can also add(or remove) it into favourite list
 
 # Languages, API, Libraries used :- 
-HTML : To structure the website
-CSS : To add styling to our webpages
-JavaScript : To add functionality to our website like adding onclick functions for button, fetching and displaying data from API
-MealDB : API used to get all data about thousands of dishes
-Bootstrap : Library to add some predefined styling and functionalities
+1. HTML : To structure the website
+2. CSS : To add styling to our webpages
+3. JavaScript : To add functionality to our website like adding onclick functions for button, fetching and displaying data from API
+4. MealDB : API used to get all data about thousands of dishes
+5. Bootstrap : Library to add some predefined styling and functionalities
 
 # Functions :-
 1. User can see all the dishes using Search bar
@@ -28,5 +28,5 @@ Bootstrap : Library to add some predefined styling and functionalities
 6. Remove button: Each dish should have remove button, clicking on which should remove that dish from the favourite list
 
 # Resouces :-
-TheMealDB API : "https://www.themealdb.com/api.php"
-Bootstrap : "https://getbootstrap.com/"
+1. TheMealDB API : "https://www.themealdb.com/api.php"
+2. Bootstrap : "https://getbootstrap.com/"
