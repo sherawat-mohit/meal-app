@@ -56,7 +56,7 @@ body{
     color: rgb(238, 229, 229);
 }
 
-/* meal imag  */
+/* Dish image  */
 #fav-items  img{
     height: 100%;
     width: 100%;
@@ -65,7 +65,7 @@ body{
     
 }
 
-/* heading- name of meal  */
+/* heading - name of Dish  */
 #fav-items h5{
     font-family: ui-monospace;
     height: 55px;
