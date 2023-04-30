@@ -1,7 +1,7 @@
 # General-info :-
-Student Name : Mohit Kumar
-email : dev.sherawatmohit@gmail.com
-Project : Coding Ninjas Career Camp Project
+1. Student Name : Mohit Kumar
+2. email : dev.sherawatmohit@gmail.com
+3. Project : Coding Ninjas Career Camp Project
 
 # Meal-App :-
 This is Meal app where you can know about your favourites dishes their recipe in text and video for guidance to cook that dish. You can search about any Dish and see the deatils about that meal.You can also add(or remove) it into favourite list
