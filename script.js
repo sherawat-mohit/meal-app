@@ -1,5 +1,5 @@
 let alphabet;
-let httpRequest = new XMLHttpRequest();
+let httpReq = new XMLHttpRequest();
 var itemSet=new Set();
 
 // fetching data and storing to itemset 
@@ -11,22 +11,23 @@ try{
         }
     }
 }catch(err){
+
     // handling error 
     localStorage.setItem("list", "");
 }
 
 // getting all category data and populating into category div 
 function getCatData(alphabet){
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.open("get", alphabet,false);
+    let httpReq = new XMLHttpRequest();
+    httpReq.open("get", alphabet,false);
 
     // removing all childs from category div 
     const myNode = document.getElementById("category-list");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.lastChild);
     }
-    httpRequest.onload = function() {
-        data = JSON.parse(httpRequest.response);
+    httpReq.onload = function() {
+        data = JSON.parse(httpReq.response);
 
         // iterating on all data 
         for(let meal of data.meals){
@@ -40,14 +41,13 @@ function getCatData(alphabet){
             img.src=meal.strMealThumb;
             div.appendChild(img);
 
-            // title of Meal 
+            // title of meal 
             title=document.createElement("h5");
             a=document.createElement("a");
             title.id=meal.idMeal;
             title.innerHTML = meal.strMeal;
             
-            a.setAttribute("href", "Pages/details.html");
-            a.setAttribute('target', '_blank');
+            a.setAttribute("href", "./Pages/details.html");
             a.appendChild(title);
             title.setAttribute("onclick", "detailsClicked(this.id)");
 
@@ -65,16 +65,17 @@ function getCatData(alphabet){
             
             document.getElementById("category-list").appendChild(parent);
         }
+
     }
-    httpRequest.send();
+    httpReq.send();
 }
 
 // adding all category data 
-httpRequest.open("get", "https://www.themealdb.com/api/json/v1/1/list.php?c=list", false);
+httpReq.open("get", "https://www.themealdb.com/api/json/v1/1/list.php?c=list", false);
 const myNode = document.getElementById("select-category");
 
-httpRequest.onload = function() {
-        data = JSON.parse(httpRequest.response);
+httpReq.onload = function() {
+        data = JSON.parse(httpReq.response);
         for(let category of data.meals){
             node=document.createElement("option");
             node.innerHTML = category.strCategory;
@@ -82,8 +83,9 @@ httpRequest.onload = function() {
             node.setAttribute("onclick", "cat_click(this.value)" );
             document.getElementById("select-category").appendChild(node);
         }
+
 }
-httpRequest.send();
+httpReq.send();
 
 // category is clicked 
 function cat_click(char){
@@ -108,10 +110,10 @@ function fav_click(name){
 getCatData("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood");
 getData("https://www.themealdb.com/api/json/v1/1/search.php?f=s");
 
-// searching data and reloading data
 var searchSet=new Set();
+// searching data and reloading data
 
-// search-bar key up handle 
+// search bar key up handle 
 function keyupHandle() {
     const myNode = document.getElementById("search-result");
         while (myNode.firstChild) {
@@ -129,11 +131,13 @@ function keyupHandle() {
 }
 
 // loading searched data 
-function loadSearchedData(alphabet){ 
-    httpRequest.open("get", alphabet, true);
+function loadSearchedData(alphabet){
+    
+    httpReq.open("get", alphabet, true);
     searchSet=new Set(); 
-    httpRequest.onload = function() {
-        data = JSON.parse(httpRequest.response);
+    console.log(alphabet);
+    httpReq.onload = function() {
+        data = JSON.parse(httpReq.response);
         // iterating on fetched data 
         for(let meal of data.meals){
             searchSet.add(meal.strMeal);
@@ -142,7 +146,7 @@ function loadSearchedData(alphabet){
             a1.innerHTML = meal.strMeal;
             a1.id=meal.idMeal;
             a1.setAttribute("onclick", "detailsClicked(this.id)");
-            a1.setAttribute("href", "Pages/details.html");
+            a1.setAttribute("href", "./Pages/details.html");
             a1.setAttribute("target", "_blank");
             p=document.createElement("p");
             p.id=meal.idMeal;
@@ -153,11 +157,11 @@ function loadSearchedData(alphabet){
             document.getElementById("search-result").appendChild(li);
         }
     }
-    httpRequest.send();
+    httpReq.send();
 }
 
-// show details meal clicked 
+// meal clicked
 function detailsClicked(id){
-    // storing to local storage
+    // storing to local 
     localStorage.setItem("id", id);
 }

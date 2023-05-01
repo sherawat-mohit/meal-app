@@ -1,5 +1,5 @@
 let alphabet;
-let httpRequest = new XMLHttpRequest();
+let httpReq = new XMLHttpRequest();
 var itemSet=new Set();
 
 // retriving data from local stoarge and storing it in Set 
@@ -34,13 +34,13 @@ function favDel(name){
     loadAll();
 }
 
-// fetching favourite items data 
+// fetching fav data 
 function getFavData(alphabet){
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.open("get", alphabet,false);
+    let httpReq = new XMLHttpRequest();
+    httpReq.open("get", alphabet,false);
 
-    httpRequest.onload = function() {
-        data = JSON.parse(httpRequest.response);
+    httpReq.onload = function() {
+        data = JSON.parse(httpReq.response);
 
         // populating fetched data to DOM elements
         let meal = data.meals[0];
@@ -57,11 +57,11 @@ function getFavData(alphabet){
         title.id=meal.idMeal;
         title.innerHTML = meal.strMeal;
             
-        a.setAttribute("href", "details.html");
+        a.setAttribute("href", "./details.html");
         a.appendChild(title);
         title.setAttribute("onclick", "detailsClicked(this.id)");
         button=document.createElement("button");
-        button.innerHTML = "Remove";
+        button.innerHTML = "Remove from Favorite";
         button.id= meal.idMeal;
         button.setAttribute("onclick", "favDel(this.id)" );
         parent.appendChild(div);
@@ -69,7 +69,7 @@ function getFavData(alphabet){
         parent.appendChild(button);
         document.getElementById("fav-list").appendChild(parent);
     }
-    httpRequest.send();
+    httpReq.send();
 }
 
 // load all the data in list 
@@ -92,9 +92,15 @@ function loadAll(){
     // if size is 0 then so empty message 
     if(itemSet.size==0){
         heading=document.createElement("h2");
-        heading.innerHTML = "Oops!!! You haven't added any Meal to Favourites<br>Add Some meals to using <b>Add to Favourite</b> Button";
+        heading.innerHTML = "Oops!!! You haven't added any Meals to Favourites";
         document.getElementById("fav-list").appendChild(heading);
     }
+}
+
+// meal clicked
+function detailsClicked(id){
+    // storing to local 
+    localStorage.setItem("id", id);
 }
 
 loadAll();
